@@ -407,7 +407,28 @@
       
         
           
-            <h1 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h1><p>什么是分治？查了一些资料，就是分而治之！其实也是废话，好了</p>
+            <h1 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h1><p>什么是分治？查了一些资料，就是分而治之！其实也是废话，维基上说：分治法是建基于多项分支递归的一种很重要的算法范式。就是把一个复杂的问题分成两个或更多的相同或相似的子问题，这些子问题相互独立且与原问题性质相同，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。很多高效的算法都是运用分治的技巧！例如：递归、快排、傅里叶变换。想运用好分治法，需要大量的实践，才能做到手到擒来。<br>分治法解题的步骤：</p>
+<ul>
+<li>分解：将我们要解决的问题分解成若干个相对独立、与原问题解法相同的同类问题</li>
+<li>求解：如果子问题已分解到足够小并且我们可以解决的时候，直接去解，否则的话继续递归</li>
+<li>合并：根据原问题的要求，对各个子问题以一定的形式进行合并</li>
+</ul>
+<h1 id="一个简单的例子-归并排序"><a href="#一个简单的例子-归并排序" class="headerlink" title="一个简单的例子-归并排序"></a>一个简单的例子-归并排序</h1><p>简单且经典的例子是避免枯燥的最好方式，这里我举个简单的归并排序的例子，正好也复习了一遍归并排序算法。哈哈哈😆，我们以经典的2-路归并排序为例来讲，首先形象的看一下排序过程:</p>
+<blockquote>
+<p>初始: [49] [38] [65] [97] [76] [13] [27]<br>一趟: [38   49] [65   97] [13   76] [27]<br>三趟: [38   49   65   97] [13   27   76]<br>四趟: [13   27   38   49   65   76   97]</p>
+</blockquote>
+<p>上面的图我就不解释了，说一下归并排序原理：假设初始序列有n个记录，开始可看成n个有序的子序列，正如上面所看到的，49、38、65这些数字分别可看成是一个个的子序列，每个子序列的长度为1，然后两两归并，会得到⎡n/2⎤个长度为2或者1的子序列，然后两两归并，⋅⋅⋅⋅，直到得到长度为n的有序序列为止，也就是最后一趟了。归并排序的核心操作是：将前后相邻的有序序列归并为一个有序序列,核心算法如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType;</div><div class="line">ElemType *B = (ElemType *)<span class="built_in">malloc</span>((n+<span class="number">1</span>)*<span class="keyword">sizeof</span>(ElemType)); <span class="comment">//辅助数组B</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElemType A[], <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span></span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k = low; k &lt;= high; k++) &#123;</div><div class="line">    B[k] = A[K];  <span class="comment">//将A中所有元素复制到B中</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">int</span> i, j;</div><div class="line">  <span class="comment">/** 比较B的左右两端中的元素，将较小值复制到A中 **/</span></div><div class="line">  <span class="keyword">for</span> (i = low, j = mid+<span class="number">1</span>, k = i; i &lt; mid &amp;&amp; j &lt;= high; k++)&#123;</div><div class="line">    <span class="keyword">if</span>(B[i] &lt;= B[j])</div><div class="line">      A[k] = B[i++];</div><div class="line">    <span class="keyword">else</span></div><div class="line">      A[K] = [j++];</div><div class="line">  &#125;</div><div class="line">  <span class="comment">/** 以下两个循环会有一个执行，即未检测完的那个表会接着复制 **/</span></div><div class="line">  <span class="keyword">while</span> (i &lt;= mid)</div><div class="line">    A[k++] = B[j++];</div><div class="line">  <span class="keyword">while</span> (j &lt;= high)</div><div class="line">    A[k++] = B[j++]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>下面是递归的调用上面函数的合并操作：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(ElemType A[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(low &lt; high)&#123;</div><div class="line">    <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</div><div class="line">    MergeSort(A, low, mid);</div><div class="line">    MergeSort(A,mid+<span class="number">1</span>, high);</div><div class="line">    Merge(a, low, mid, high);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>可见归并排序是基于分治思想，对应的分治法解题步骤如下：</p>
+<ul>
+<li>分解：将含有n个元素的待排序表分成两个子表，对子表进行递归的分解</li>
+<li>求解：当子表不能再分解时，返回</li>
+<li>合并：递归返回的过程中依次合并两个有序的子表，直至跳出递归</li>
+</ul>
+<h1 id="归并的性能分析"><a href="#归并的性能分析" class="headerlink" title="归并的性能分析"></a>归并的性能分析</h1><p>空间效率：在Merge()操作中，辅助空间需要占用n个单元，所以归并排序的空间复杂度为O(n)。<br>时间效率：每一趟的归并的时间复杂度为O(n)，一共需要进行⎡logn⎤趟归并，所以算法的时间复杂度为O(nlogn)<br>稳定性：小跨度，稳定！</p>
+<blockquote>
+<p><em> 对于N个元素进行k-路归并排序时，排序的趟数m满足k^m=N。</em></p>
+</blockquote>
 
           
         
