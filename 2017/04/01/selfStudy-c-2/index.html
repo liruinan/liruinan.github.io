@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="分治法," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -105,16 +105,24 @@
 
 
 
-<meta name="description" content="闲聊什么是分治？查了一些资料，就是分而治之！其实也是废话，维基上说：分治法是建基于多项分支递归的一种很重要的算法范式。就是把一个复杂的问题分成两个或更多的相同或相似的子问题，这些子问题相互独立且与原问题性质相同，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。很多高效的算法都是运用分治的技巧！例如：递归、快排、傅里叶变换。想运用好分治法，需要大量的实践，才能做到手到擒来。分治法解题">
+<meta name="description" content="简单变量关于变量的命名，简单提一下：只能是数字、字符和下划线组成；数字不能打头；区分大小写；以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器以及使用资源）使用；以一个下划线开头的名称被保留给实现，用作全局标识符；C++对长度没有限制（ANSI C（C99标准）只保证名称中的前63个字符有意义）。关于命名方案，个人喜欢用驼峰命名。32位编译器下几种类型占用字节情况:
+
+char ：1个字">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分治法">
-<meta property="og:url" content="https://liruinan.github.io/2017/03/31/algorithm-2/index.html">
+<meta property="og:title" content="C++学习笔记:数据处理">
+<meta property="og:url" content="https://liruinan.github.io/2017/04/01/selfStudy-c-2/index.html">
 <meta property="og:site_name" content="Ruinan blog">
-<meta property="og:description" content="闲聊什么是分治？查了一些资料，就是分而治之！其实也是废话，维基上说：分治法是建基于多项分支递归的一种很重要的算法范式。就是把一个复杂的问题分成两个或更多的相同或相似的子问题，这些子问题相互独立且与原问题性质相同，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。很多高效的算法都是运用分治的技巧！例如：递归、快排、傅里叶变换。想运用好分治法，需要大量的实践，才能做到手到擒来。分治法解题">
-<meta property="og:updated_time" content="2017-03-31T16:40:47.000Z">
+<meta property="og:description" content="简单变量关于变量的命名，简单提一下：只能是数字、字符和下划线组成；数字不能打头；区分大小写；以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器以及使用资源）使用；以一个下划线开头的名称被保留给实现，用作全局标识符；C++对长度没有限制（ANSI C（C99标准）只保证名称中的前63个字符有意义）。关于命名方案，个人喜欢用驼峰命名。32位编译器下几种类型占用字节情况:
+
+char ：1个字">
+<meta property="og:image" content="https://liruinan.github.io/images/IT/float.png">
+<meta property="og:updated_time" content="2017-04-02T09:30:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分治法">
-<meta name="twitter:description" content="闲聊什么是分治？查了一些资料，就是分而治之！其实也是废话，维基上说：分治法是建基于多项分支递归的一种很重要的算法范式。就是把一个复杂的问题分成两个或更多的相同或相似的子问题，这些子问题相互独立且与原问题性质相同，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。很多高效的算法都是运用分治的技巧！例如：递归、快排、傅里叶变换。想运用好分治法，需要大量的实践，才能做到手到擒来。分治法解题">
+<meta name="twitter:title" content="C++学习笔记:数据处理">
+<meta name="twitter:description" content="简单变量关于变量的命名，简单提一下：只能是数字、字符和下划线组成；数字不能打头；区分大小写；以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器以及使用资源）使用；以一个下划线开头的名称被保留给实现，用作全局标识符；C++对长度没有限制（ANSI C（C99标准）只保证名称中的前63个字符有意义）。关于命名方案，个人喜欢用驼峰命名。32位编译器下几种类型占用字节情况:
+
+char ：1个字">
+<meta name="twitter:image" content="https://liruinan.github.io/images/IT/float.png">
 
 
 
@@ -142,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="https://liruinan.github.io/2017/03/31/algorithm-2/"/>
+  <link rel="canonical" href="https://liruinan.github.io/2017/04/01/selfStudy-c-2/"/>
 
 
 
 
 
-  <title> 分治法 | Ruinan blog </title>
+  <title> C++学习笔记:数据处理 | Ruinan blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -307,7 +315,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/03/31/algorithm-2/">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/01/selfStudy-c-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="瑞楠">
@@ -328,7 +336,7 @@
             
             
               
-                分治法
+                C++学习笔记:数据处理
               
             
           </h1>
@@ -343,8 +351,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T22:35:48+08:00">
-                2017-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-01T23:38:03+08:00">
+                2017-04-01
               </time>
             
 
@@ -366,8 +374,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法的奥妙/" itemprop="url" rel="index">
-                    <span itemprop="name">算法的奥妙</span>
+                  <a href="/categories/自学的天堂/" itemprop="url" rel="index">
+                    <span itemprop="name">自学的天堂</span>
                   </a>
                 </span>
 
@@ -401,28 +409,64 @@
       
 
       
-        <h1 id="闲聊"><a href="#闲聊" class="headerlink" title="闲聊"></a>闲聊</h1><p>什么是分治？查了一些资料，就是分而治之！其实也是废话，维基上说：分治法是建基于多项分支递归的一种很重要的算法范式。就是把一个复杂的问题分成两个或更多的相同或相似的子问题，这些子问题相互独立且与原问题性质相同，直到最后子问题可以简单的直接求解，原问题的解即子问题的解的合并。很多高效的算法都是运用分治的技巧！例如：递归、快排、傅里叶变换。想运用好分治法，需要大量的实践，才能做到手到擒来。<br>分治法解题的步骤：</p>
-<ul>
-<li>分解：将我们要解决的问题分解成若干个相对独立、与原问题解法相同的同类问题</li>
-<li>求解：如果子问题已分解到足够小并且我们可以解决的时候，直接去解，否则的话继续递归</li>
-<li>合并：根据原问题的要求，对各个子问题以一定的形式进行合并</li>
-</ul>
-<h1 id="一个简单的例子-归并排序"><a href="#一个简单的例子-归并排序" class="headerlink" title="一个简单的例子-归并排序"></a>一个简单的例子-归并排序</h1><p>简单且经典的例子是避免枯燥的最好方式，这里我举个简单的归并排序的例子，正好也复习了一遍归并排序算法。哈哈哈😆，我们以经典的2-路归并排序为例来讲，首先形象的看一下排序过程:</p>
+        <h1 id="简单变量"><a href="#简单变量" class="headerlink" title="简单变量"></a>简单变量</h1><p>关于变量的命名，简单提一下：只能是数字、字符和下划线组成；数字不能打头；区分大小写；以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器以及使用资源）使用；以一个下划线开头的名称被保留给实现，用作全局标识符；C++对长度没有限制（ANSI C（C99标准）只保证名称中的前63个字符有意义）。关于命名方案，个人喜欢用驼峰命名。<br>32位编译器下几种类型占用字节情况:</p>
 <blockquote>
-<p>初始: [49] [38] [65] [97] [76] [13] [27]<br>一趟: [38   49] [65   97] [13   76] [27]<br>三趟: [38   49   65   97] [13   27   76]<br>四趟: [13   27   38   49   65   76   97]</p>
+<p>char ：1个字节<br>char*（即指针变量）: 4个字节（32位的寻址空间是2^32, 即32个bit，也就是4个字节。同理64位编译器）<br>short int : 2个字节<br>int：  4个字节<br>unsigned int : 4个字节<br>float:  4个字节<br>double:   8个字节<br>long:   4个字节<br>unsigned long:  4个字节<br>long long:  8个字节 (C++新增类型)</p>
 </blockquote>
-<p>上面的图我就不解释了，说一下归并排序原理：假设初始序列有n个记录，开始可看成n个有序的子序列，正如上面所看到的，49、38、65这些数字分别可看成是一个个的子序列，每个子序列的长度为1，然后两两归并，会得到⎡n/2⎤个长度为2或者1的子序列，然后两两归并，⋅⋅⋅⋅，直到得到长度为n的有序序列为止，也就是最后一趟了。归并排序的核心操作是：将前后相邻的有序序列归并为一个有序序列,核心算法如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType;</div><div class="line">ElemType *B = (ElemType *)<span class="built_in">malloc</span>((n+<span class="number">1</span>)*<span class="keyword">sizeof</span>(ElemType)); <span class="comment">//辅助数组B</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(ElemType A[], <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span></span>&#123;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> k = low; k &lt;= high; k++) &#123;</div><div class="line">    B[k] = A[K];  <span class="comment">//将A中所有元素复制到B中</span></div><div class="line">  &#125;</div><div class="line">  <span class="keyword">int</span> i, j;</div><div class="line">  <span class="comment">/** 比较B的左右两端中的元素，将较小值复制到A中 **/</span></div><div class="line">  <span class="keyword">for</span> (i = low, j = mid+<span class="number">1</span>, k = i; i &lt; mid &amp;&amp; j &lt;= high; k++)&#123;</div><div class="line">    <span class="keyword">if</span>(B[i] &lt;= B[j])</div><div class="line">      A[k] = B[i++];</div><div class="line">    <span class="keyword">else</span></div><div class="line">      A[K] = [j++];</div><div class="line">  &#125;</div><div class="line">  <span class="comment">/** 以下两个循环会有一个执行，即未检测完的那个表会接着复制 **/</span></div><div class="line">  <span class="keyword">while</span> (i &lt;= mid)</div><div class="line">    A[k++] = B[j++];</div><div class="line">  <span class="keyword">while</span> (j &lt;= high)</div><div class="line">    A[k++] = B[j++]</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>下面是递归的调用上面函数的合并操作：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(ElemType A[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>(low &lt; high)&#123;</div><div class="line">    <span class="keyword">int</span> mid = (low + high)/<span class="number">2</span>;</div><div class="line">    MergeSort(A, low, mid);</div><div class="line">    MergeSort(A,mid+<span class="number">1</span>, high);</div><div class="line">    Merge(a, low, mid, high);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>可见归并排序是基于分治思想，对应的分治法解题步骤如下：</p>
-<ul>
-<li>分解：将含有n个元素的待排序表分成两个子表，对子表进行递归的分解</li>
-<li>求解：当子表不能再分解时，返回</li>
-<li>合并：递归返回的过程中依次合并两个有序的子表，直至跳出递归</li>
-</ul>
-<h1 id="归并的性能分析"><a href="#归并的性能分析" class="headerlink" title="归并的性能分析"></a>归并的性能分析</h1><p>空间效率：在Merge()操作中，辅助空间需要占用n个单元，所以归并排序的空间复杂度为O(n)。<br>时间效率：每一趟的归并的时间复杂度为O(n)，一共需要进行⎡logn⎤趟归并，所以算法的时间复杂度为O(nlogn)<br>稳定性：小跨度，稳定！</p>
+<p>64位编译器下几种类型占用字节情况:</p>
 <blockquote>
-<p><em> 对于N个元素进行k-路归并排序时，排序的趟数m满足k^m=N。</em></p>
+<p>char ：1个字节<br>char*(即指针变量): 8个字节<br>short int : 2个字节<br>int：  4个字节<br>unsigned int : 4个字节<br>float:  4个字节<br>double:   8个字节<br>long:   8个字节<br>unsigned long:  8个字节<br>long long:  8个字节 (C++新增类型)</p>
 </blockquote>
+<p>计算内存的基本单元是位(bit),假设现在内存中有8位：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>如果看成无符号类型，则可以表示的范围为0~255（即最小值是每个位上全是0，最大值是每个位上全是1）；如果看成无符号类型，则可以表示的范围为-128~127，对于127，很好解释，就是第一位为0，其余全为1，但是为什么最小值是-128呢？计算机中对于数值的存储都是采用补码，而对于有符号的数值将会出现两个0，即+0和-0，分别为：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">+<span class="number">0</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span>    <span class="number">-0</span>:<span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span></div></pre></td></tr></table></figure></p>
+<p>其实都是0，显然，这就浪费了存储空间，为此将-0约定为（最小值-1）即出现了（-127-1=-128），对于其它类型类似。关于自己，其实“字节”的含义依赖于实现，不过我们通常的机器里一个字节就是8位，可在头文件climits(老式实现中为limits.h)中查看关于整型的限制信息。比如:<em> INT_MAX </em> 为整型最大值，<em> CHAR_BIT </em> 为字节的位数。另外可以用sizeof查看类型占用的字节数。<br>以下为初始化语句：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> m = <span class="number">10</span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">n</span><span class="params">(<span class="number">10</span>)</span></span>;</div><div class="line"><span class="keyword">int</span> r&#123;<span class="number">10</span>&#125;;</div><div class="line"><span class="keyword">int</span> p = &#123;&#125;;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>上述后2、3、4语句的初始化方式为C++专有的，另外，如果不对函数内部定义的变量进行初始化，则会带来瞬间悬而未决的问题，尽量要避免。对于3、4行的初始方式是C++11想让这种方式用于任何类型。对于大括号内不包含任何东西的情况下，变量的值会被初始化为0。</p>
+</blockquote>
+<p>熟记两个字符的ASCII码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'A'</span>:<span class="number">65</span>  <span class="string">'a'</span>:<span class="number">97</span></div></pre></td></tr></table></figure></p>
+<p>与int不同的是，char在默认情况下既不是没有符号，也不是有符号。是否有符号是由C++决定的，还有一种数据类型，wcha_t用sizeof看了一下，占用4个字节(我的编译器是64位的)，主要是应对程序需要处理的字符集可能无法用一个8位的字节表示，iostream头文件的最新版也提供了相应的流对象处理wchar_t，另外，可以通过加上前缀L来指示宽字符常量和宽字符串，看代码：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">wchar_t</span> m = L'P';</div><div class="line">wcout &lt;&lt; <span class="string">L"HelloWord"</span>;</div></pre></td></tr></table></figure></p>
+<p>C++11新增了char16_t和char32_t类型:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char16_t</span> ch1 = u'q';</div><div class="line"><span class="keyword">char32_t</span> ch2 = U'q';</div></pre></td></tr></table></figure></p>
+<p>创建常量的通用格式：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> type name = value</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>在C++中可以用const值来声明数组的长度，常量必须要初始化。</p>
+</blockquote>
+<h1 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h1><p>浮点数即带小数部分数字，两种书写方式，第一种是标准小数点表示法，如12.34、8.0；第二种是E表示法，如2.52e+8、-8.33E13。不过多介绍了，下面主要说一下浮点数的存储方式，以flaot为例，共32位，在内存中的存储方式如下：<br><img src="/images/IT/float.png"> <br>对于指数部分用 <em>移码</em> 存储，对于尾数用 <em>原码</em> 存储，浮点数值 = (-1)^符号位 × 2^指数部分 × 尾数部分。关于有效数字，看下面解释：</p>
+<blockquote>
+<p>float：尾数：23位；可表示最大值：2^23 - 1 = 8388607；有效数字：6~7<br>double：尾数：52位；可表示最大值：2^52 - 1 = 4503599627370496；有效数字：15~16</p>
+</blockquote>
+<p>对于有效数字为什么是6~7，因为float尾数表示的最大值是7位，但是表示7位的最大值：9999999，所以对于6位可以表示全部的有效数字，而对于7位只有一部分是有效的。对于double类型同理。</p>
+<blockquote>
+<font color="red">对于指数的详细解释下次再补充</font>
+
+</blockquote>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h1><table>
+<thead>
+<tr>
+<th style="text-align:center">转换</th>
+<th style="text-align:center">潜在的问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">将较大的浮点数转换为较小的浮点类型(double-&gt;float)</td>
+<td style="text-align:center">精度降低，如果值超出目标类型的取值范围，结果不确定</td>
+</tr>
+<tr>
+<td style="text-align:center">将浮点类型转换为整型(3.9-&gt;3)</td>
+<td style="text-align:center">小数部分丢失，如果值超出目标类型的取值范围，结果不确定</td>
+</tr>
+<tr>
+<td style="text-align:center">较大整型转换为较小的整型(long-&gt;shot)</td>
+<td style="text-align:center">如果值超出目标类型的取值范围，通常只复制右边的字节</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>0赋值给bool，被转换为false，非0值被转换为true。</p>
+</blockquote>
+<p>下面看几行代码:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> x = <span class="number">66</span>;</div><div class="line"><span class="keyword">char</span> c1&#123;x&#125;; <span class="comment">//不允许</span></div><div class="line"><span class="keyword">char</span> c2 = x;  <span class="comment">//允许</span></div></pre></td></tr></table></figure></p>
+<p>上面我们可以看出以{}方式初始化时，转换更严格，在编译器看来，x是一个变量，其值可能很大，编译器不会跟踪下述阶段可能发生的情况。下面看一下整型提升的例子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">short</span> a = <span class="number">20</span>;</div><div class="line"><span class="keyword">short</span> b = <span class="number">35</span>;</div><div class="line"><span class="keyword">short</span> c = a + b;</div></pre></td></tr></table></figure></p>
+<p>上述代码对于第三行的转换为：C++程序取得a和b的值，并将它们转换为int，然后程序将结果转换为short类型。在计算机中通常将int类型作为计算机最为自然的类型。强转的几种方式：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(typeName)value <span class="comment">//这种格式来自C</span></div><div class="line">typeName(value) <span class="comment">//这种方式来自C++</span></div><div class="line"><span class="keyword">static_cast</span>&lt;typeName&gt;(value)  <span class="comment">//C++的强制类型转换运算符</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -473,7 +517,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/分治法/" rel="tag"># 分治法</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -486,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/31/entertainment/" rel="next" title="我的娱乐">
-                <i class="fa fa-chevron-left"></i> 我的娱乐
+              <a href="/2017/04/01/algorithm-3/" rel="next" title="贪心">
+                <i class="fa fa-chevron-left"></i> 贪心
               </a>
             
           </div>
@@ -495,10 +539,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/01/algorithm-3/" rel="prev" title="贪心">
-                贪心 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -694,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#闲聊"><span class="nav-number">1.</span> <span class="nav-text">闲聊</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一个简单的例子-归并排序"><span class="nav-number">2.</span> <span class="nav-text">一个简单的例子-归并排序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#归并的性能分析"><span class="nav-number">3.</span> <span class="nav-text">归并的性能分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简单变量"><span class="nav-number">1.</span> <span class="nav-text">简单变量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浮点数"><span class="nav-number">2.</span> <span class="nav-text">浮点数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#类型转换"><span class="nav-number">3.</span> <span class="nav-text">类型转换</span></a></li></ol></div>
             
 
           </div>
