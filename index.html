@@ -308,6 +308,723 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/15/tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑞楠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruinan blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/15/tree/" itemprop="url">
+                  树的遍历
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T12:57:06+08:00">
+                2017-04-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="树的前序非递归遍历"><a href="#树的前序非递归遍历" class="headerlink" title="树的前序非递归遍历"></a>树的前序非递归遍历</h1><p>树的结构<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Node &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    Node *left, *right;</div><div class="line">    Node(<span class="keyword">int</span> val) &#123;</div><div class="line">        <span class="keyword">this</span>-&gt;val = val;</div><div class="line">        <span class="keyword">this</span>-&gt;left = <span class="keyword">this</span>-&gt;right = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>前序非递归遍历：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">preTree</span><span class="params">(Node *root)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="built_in">stack</span>&lt;Node *&gt; myStack;</div><div class="line">	myStack.push(root);</div><div class="line">	<span class="keyword">while</span> (!myStack.empty())</div><div class="line">	&#123;</div><div class="line">		Node *p = myStack.top(); stk.pop();</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</div><div class="line">		<span class="keyword">if</span> (p-&gt;right) stk.push(p-&gt;right);</div><div class="line">		<span class="keyword">if</span> (p-&gt;left) stk.push(p-&gt;left);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>中序非递归<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">midTree</span><span class="params">(Node *root)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">stack</span>&lt;Node *&gt; myStack;</div><div class="line">    Node *p = root;</div><div class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> || !myStack.empty())</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (p != <span class="literal">NULL</span>)</div><div class="line">            myStack.push(p), p = p-&gt;left;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            p = myStack.top(); myStack.pop();</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</div><div class="line">            p = p-&gt;right;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>后序非递归<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">backTree</span><span class="params">(Node *root)</span><span class="comment">//非递归后序遍历</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="built_in">stack</span>&lt;Node *&gt; myStack1, myStack2;</div><div class="line">    myStack1.push(root);</div><div class="line">    <span class="keyword">while</span> (!myStack1.empty())</div><div class="line">    &#123;</div><div class="line">        Node *p = myStack1.top(); myStack1.pop();</div><div class="line">        myStack2.push(p);</div><div class="line">        <span class="keyword">if</span> (p-&gt;left) myStack1.push(p-&gt;left);</div><div class="line">        <span class="keyword">if</span> (p-&gt;right) myStack1.push(p-&gt;right);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>(!myStack2.empty())</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, stk2.top()-&gt;val);</div><div class="line">        myStack2.pop();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/12/library-c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑞楠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruinan blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/12/library-c/" itemprop="url">
+                  C++常见函数封装
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-12T20:07:55+08:00">
+                2017-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学的天堂/" itemprop="url" rel="index">
+                    <span itemprop="name">自学的天堂</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="字符串分割"><a href="#字符串分割" class="headerlink" title="字符串分割"></a>字符串分割</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//字符串分割</span></div><div class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; split(<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;str,<span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> &amp;pattern)</div><div class="line">&#123;</div><div class="line">    <span class="comment">//const char* convert to char*</span></div><div class="line">    <span class="keyword">char</span> * strc = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="built_in">strlen</span>(str.c_str())+<span class="number">1</span>];</div><div class="line">    <span class="built_in">strcpy</span>(strc, str.c_str());</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="built_in">string</span>&gt; resultVec;</div><div class="line">    <span class="keyword">char</span>* tmpStr = strtok(strc, pattern.c_str());</div><div class="line">    <span class="keyword">while</span> (tmpStr != <span class="literal">NULL</span>)</div><div class="line">    &#123;</div><div class="line">        resultVec.push_back(<span class="built_in">std</span>::<span class="built_in">string</span>(tmpStr));</div><div class="line">        tmpStr = strtok(<span class="literal">NULL</span>, pattern.c_str());</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">delete</span>[] strc;</div><div class="line">    <span class="keyword">return</span> resultVec;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="字符串转整型"><a href="#字符串转整型" class="headerlink" title="字符串转整型"></a>字符串转整型</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//自定义的模板函数，使用与整型、浮点型等基本数值类型</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt;</div><div class="line"><span class="function">Type <span class="title">string2Num</span><span class="params">(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="built_in">istringstream</span> <span class="title">s</span><span class="params">(str)</span></span>;</div><div class="line">    Type number;</div><div class="line">    s &gt;&gt; num;</div><div class="line">    <span class="keyword">return</span> number;</div><div class="line">&#125;</div><div class="line"><span class="comment">//使用方式</span></div><div class="line">stringToNum&lt;<span class="keyword">float</span>&gt;(<span class="string">"34.4"</span>);</div><div class="line"><span class="comment">//其它方式，对于atoi，如果 string 为空，返回值为 0。</span></div><div class="line">原型:<span class="function"><span class="keyword">int</span> <span class="title">atoi</span> <span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> * str )</span></span>;</div><div class="line">原型:<span class="function"><span class="keyword">double</span> <span class="title">atof</span> <span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> * str )</span></span>;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/10/notion-c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑞楠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruinan blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/10/notion-c/" itemprop="url">
+                  C++常见注意事项
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-10T15:58:04+08:00">
+                2017-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学的天堂/" itemprop="url" rel="index">
+                    <span itemprop="name">自学的天堂</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it;</div><div class="line"><span class="keyword">for</span>(it = A.begin();it!=A.end();)&#123;</div><div class="line">    <span class="keyword">if</span> (*it == elem)&#123;</div><div class="line">        <span class="comment">//对于这条语句会自动将指针向后移动一位。要注意</span></div><div class="line">        A.erase(it);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/04/literature-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑞楠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruinan blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/04/literature-2/" itemprop="url">
+                  滕王阁序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-04T23:31:04+08:00">
+                2017-04-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/文字的力量/" itemprop="url" rel="index">
+                    <span itemprop="name">文字的力量</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/02/selfStudy-c-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="瑞楠">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/my.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ruinan blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/02/selfStudy-c-3/" itemprop="url">
+                  C++学习笔记:复合类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-02T18:57:08+08:00">
+                2017-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/自学的天堂/" itemprop="url" rel="index">
+                    <span itemprop="name">自学的天堂</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id=""><a href="#" class="headerlink" title="#"></a>#</h1>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/01/selfStudy-c-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1135,363 +1852,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/03/31/selfStudy-c-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="瑞楠">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/my.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ruinan blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/selfStudy-c-1/" itemprop="url">
-                  C++学习笔记:预热
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T14:44:32+08:00">
-                2017-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/自学的天堂/" itemprop="url" rel="index">
-                    <span itemprop="name">自学的天堂</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="进入C"><a href="#进入C" class="headerlink" title="进入C++"></a>进入C++</h1><h2 id="C-程序预览"><a href="#C-程序预览" class="headerlink" title="C++程序预览"></a>C++程序预览</h2><p>下面是C++程序的HelloWord(程序员们都懂得)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//经典示例：HelloWord</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello Word!"</span>;</div><div class="line">    <span class="built_in">cin</span>.get();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>简单说一下整体结构：</p>
-<ul>
-<li>注释，由前缀//标识</li>
-<li>预处理器编译指令#include</li>
-<li>函数头:int main()</li>
-<li>编译指令using namespace</li>
-<li>函数体，用‘{’和‘}’括起</li>
-<li>使用C++的out工具显示消息的语句</li>
-<li>结束main()函数的return语句</li>
-</ul>
-<p>废话就不多说了，只提一点，第六行也就是 <strong>cin.get()</strong> (后面会详解)，改句是为了让程序运行到该位置处于挂起状态，等到用户按下任意键结束程序。通常，main()被启动代码调用，而启动代码是由编译器添加到程序中的，是程序和操作系统(UNIX、Windows等)之间的桥梁。<br>在C语言中经典的函数头是长这样子的：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">main()  <span class="comment">//原始C风格</span></div></pre></td></tr></table></figure></p>
-<p>在C中，省略返回类型相当于说函数的返回类型为int,C++逐步淘汰了这种做法。还有下面的变体：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div></pre></td></tr></table></figure></p>
-<p>括号中的void关键字void明确指出函数不接受任何参数，注意：在C++中void和空着是等效的，在C中括号内空着表示对是否接受参数保持默认。应尽量使用C++标准格式。如果末尾没有返回语句，则默认以 <strong>return 0</strong> 结尾，该种处理方方式只适合main()函数。</p>
-<h2 id="头文件-包含文件"><a href="#头文件-包含文件" class="headerlink" title="头文件(包含文件)"></a>头文件(包含文件)</h2><p>C语言的传统是，头文件使用扩展名h，例如 <strong>math.h</strong> ，C++中这些老式的C的头文件保留了扩展名，即C++仍可以使用这种文件。而C++的头文件没有扩展名，有些C头文件被转换为C++头文件，这些文件被重新命名，具体做法是：去掉扩展名h，名称前边加上前缀c,表明来自C语言，例如 <strong>cmath</strong> 。对于纯粹的C++头文件来说，去掉扩展名不只是形式上的变化，没有h的头文件可以包含名称空间，用一个表格做总结：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">头文件类型</th>
-<th style="text-align:center">约定</th>
-<th style="text-align:center">示例</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">C++旧式风格</td>
-<td style="text-align:center">以.h结尾</td>
-<td style="text-align:center">iostream.h</td>
-<td style="text-align:center">C++可以使用</td>
-</tr>
-<tr>
-<td style="text-align:center">C旧式风格</td>
-<td style="text-align:center">以.h结尾</td>
-<td style="text-align:center">math.h</td>
-<td style="text-align:center">C、C++可以使用</td>
-</tr>
-<tr>
-<td style="text-align:center">C++新式风格</td>
-<td style="text-align:center">没有扩展名</td>
-<td style="text-align:center">iostream</td>
-<td style="text-align:center">C++可以使用，使用namespace std</td>
-</tr>
-<tr>
-<td style="text-align:center">转换后的C</td>
-<td style="text-align:center">加上前缀c，没有扩展名</td>
-<td style="text-align:center">cmath</td>
-<td style="text-align:center">C++程序可以使用，可以使用不是C的特性，如namespace std</td>
-</tr>
-</tbody>
-</table>
-<h2 id="cout-amp-amp-cin"><a href="#cout-amp-amp-cin" class="headerlink" title="cout &amp;&amp; cin"></a>cout &amp;&amp; cin</h2><p>来看一下很很很简单的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"HelloWord!"</span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="number">25</span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> a;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; a;</div></pre></td></tr></table></figure></p>
-<p>cout是一个预定于的对象，&lt;&lt;指出了信息的流动路径，即把这个字符串或者整数发送给cout,cout很智能，知道如何显示字符串、数字和单个字符。cout的智能行为源自于C++的面向对象特性，C++插入运算符（&lt;&lt;）会根据其后的数据类型相应的调整其行为，这是一个运算符重载的例子(后面再说吧)。endl是一个特殊的C++符号，表示重起一行，在输出流中插入endl将导致屏幕光标移到下一行的开头，endl位于std名称空间中，这类字符称为控制字符。还有一种换行的方法使使用C语言的符号’\n’。</p>
-<blockquote>
-<p><em>endl可以确保程序继续运行前刷新输出，而‘\n’不能提供这样的保证，因为实际上‘\n’是一种被称为“转义序列”的按键组合。</em><br>题外话：你能实现一个算法，输入整数类型，输出对应的字符串吗？</p>
-</blockquote>
-<p>对于cin，上述语句中信息从cin流向变量a，iostream文件将cin定义为一个表示这种流的对象。输出时，&lt;&lt;运算符将字符串插入到输出流中，输入时，&gt;&gt;运算符从输入流中抽取字符。</p>
-<h2 id="类与函数"><a href="#类与函数" class="headerlink" title="类与函数"></a>类与函数</h2><p>不多讲，C++提供了两种发送消息的方式：</p>
-<ul>
-<li>使用类方法。(本质就是函数调用)</li>
-<li>重新定义运算符。(cin和cout采用的就是这种方式)</li>
-</ul>
-<p>C++中函数不能嵌套，使用时需要先声明。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/03/31/literature-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="瑞楠">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/my.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ruinan blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/31/literature-1/" itemprop="url">
-                  夜空下的遥想
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T00:40:13+08:00">
-                2017-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/文字的力量/" itemprop="url" rel="index">
-                    <span itemprop="name">文字的力量</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>午夜</strong>子时，却如何也无法入眠，推开了屋门，一阵冷寂猛然袭来，黑夜吞噬了整个世界，唯有一轮苍白的孤月镶嵌在无边的黑色夜空，刚才还万家灯火的人们现在已悄然入睡，虫鸣声给这寂静的夜又添了几分安详，也许是我长大了，面对这漆黑的夜空感觉不到一丝害怕，猛然间，我感到了生命的存在，更感到了生命的流逝，这黑夜，触动了我的心扉之门。</p>
-<p>从呱呱坠地那一刻，我们与这个世界相约，在父母的无私呵护下，我们渐渐的，从躺着到爬行，从爬行到直立，从直立到奔跑！</p>
-<p>有一天，我们被送进了学校，从开始的不适应，慢慢的，我们忘了这种感觉，这时的我们，没有害羞，没有张扬，更没有尔虞我诈和妄自尊大，我们散发着人类的本性之美，我们，有时哭，有时闹，但更多的是笑笑逐颜开，上课后我们：a o e.下课后我们：捉迷藏，伴着对童真与对未知的好奇，我们步入初中，这时的我们，有的可能离开了家乡，独在异乡，难免会思乡，可这毕竟最后被时间冲淡，我们在稍微高级的学校中逐渐走向“规定”，我们按时起床，准时睡觉，定点吃饭，慢慢的，我们养成了不是习惯的习惯，而初三那一年，我们又几乎忘了吃饭，不想睡觉，生怕时间溜走，在老师的指引下，我们对未来充满了无尽幻想，抱着对理想的追求与渴望，我们咬牙坚持着，可，现在的我们，仍然只是孩子，终于，最后的最后，生活给了每个人一份打卷，我们得到的结果不同，但，我们依然有一颗充满血色的心，拿着张张红纸，我们走近了高中——一个初中时，我们幻想的“梦幻天堂”，之后才发现，这才是真正的“人间地狱”，突然想到了苏轼说的一句话：古之成大事者，非唯有超世之才，亦必有坚韧不拔之志，从此，我把它当作座右铭，去奋斗，去拼搏，可中间，我走错了许多，也许是对未知事物的好奇吧，可贵的是，迷途而知反，也是这些经历，更让我有了更深的人生感悟，高中一句话：痛并快乐着。突然想说：其实，快乐与痛苦并没有分界线。</p>
-<p>一条幽径，香花弥漫中顿显醉人的那个妩媚，然曲折迂回中亦能激起心旷神亦的向往，挫折面前，抬起头，别让我们12年的努力戛然而止，抬起头，change yourself!</p>
-<p>我们逐渐走向成熟，也注定背负更多，别忘了，在闲暇时刻，去找一下小时候的自己，不要在意他人怎么想，然后一专一的态度，踏实的心态，无比的从容，坚韧的毅力，永不言败！对我真诚的人，我会记得，欺骗我的人，我会淡忘，珍惜拥有的，忘记该忘的，人这一生不太长，何必给自己太多烦恼！</p>
-<p>月升，月落：一夜；日升，日落：一天；睁眼，闭眼：一生！</p>
-<p>拥抱黑夜，一种独特的享受</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1534,7 +1901,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1545,7 +1912,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1556,7 +1923,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

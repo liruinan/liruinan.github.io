@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="树," />
 
 
 
@@ -105,19 +105,19 @@
 
 
 
-<meta name="description" content="进入C++C++程序预览下面是C++程序的HelloWord(程序员们都懂得)123456789//经典示例：HelloWord#include &amp;lt;iostream&amp;gt;int main()&amp;#123;    using namespace std;    cout &amp;lt;&amp;lt; &quot;Hello Word!&quot;;    cin.get();    return 0;&amp;#125;
-简单说一下">
+<meta name="description" content="树的前序非递归遍历树的结构123456789class Node &amp;#123;public:    int val;    Node *left, *right;    Node(int val) &amp;#123;        this-&amp;gt;val = val;        this-&amp;gt;left = this-&amp;gt;right = NULL;    &amp;#125;&amp;#125;;
+前序非递">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++学习笔记:预热">
-<meta property="og:url" content="https://liruinan.github.io/2017/03/31/selfStudy-c-1/index.html">
+<meta property="og:title" content="树的遍历">
+<meta property="og:url" content="https://liruinan.github.io/2017/04/15/tree/index.html">
 <meta property="og:site_name" content="Ruinan blog">
-<meta property="og:description" content="进入C++C++程序预览下面是C++程序的HelloWord(程序员们都懂得)123456789//经典示例：HelloWord#include &amp;lt;iostream&amp;gt;int main()&amp;#123;    using namespace std;    cout &amp;lt;&amp;lt; &quot;Hello Word!&quot;;    cin.get();    return 0;&amp;#125;
-简单说一下">
-<meta property="og:updated_time" content="2017-04-02T10:56:36.000Z">
+<meta property="og:description" content="树的前序非递归遍历树的结构123456789class Node &amp;#123;public:    int val;    Node *left, *right;    Node(int val) &amp;#123;        this-&amp;gt;val = val;        this-&amp;gt;left = this-&amp;gt;right = NULL;    &amp;#125;&amp;#125;;
+前序非递">
+<meta property="og:updated_time" content="2017-04-15T05:15:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++学习笔记:预热">
-<meta name="twitter:description" content="进入C++C++程序预览下面是C++程序的HelloWord(程序员们都懂得)123456789//经典示例：HelloWord#include &amp;lt;iostream&amp;gt;int main()&amp;#123;    using namespace std;    cout &amp;lt;&amp;lt; &quot;Hello Word!&quot;;    cin.get();    return 0;&amp;#125;
-简单说一下">
+<meta name="twitter:title" content="树的遍历">
+<meta name="twitter:description" content="树的前序非递归遍历树的结构123456789class Node &amp;#123;public:    int val;    Node *left, *right;    Node(int val) &amp;#123;        this-&amp;gt;val = val;        this-&amp;gt;left = this-&amp;gt;right = NULL;    &amp;#125;&amp;#125;;
+前序非递">
 
 
 
@@ -145,13 +145,13 @@
 
 
 
-  <link rel="canonical" href="https://liruinan.github.io/2017/03/31/selfStudy-c-1/"/>
+  <link rel="canonical" href="https://liruinan.github.io/2017/04/15/tree/"/>
 
 
 
 
 
-  <title> C++学习笔记:预热 | Ruinan blog </title>
+  <title> 树的遍历 | Ruinan blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -310,7 +310,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/03/31/selfStudy-c-1/">
+    <link itemprop="mainEntityOfPage" href="https://liruinan.github.io/2017/04/15/tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="瑞楠">
@@ -331,7 +331,7 @@
             
             
               
-                C++学习笔记:预热
+                树的遍历
               
             
           </h1>
@@ -346,8 +346,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-31T14:44:32+08:00">
-                2017-03-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-15T12:57:06+08:00">
+                2017-04-15
               </time>
             
 
@@ -369,8 +369,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/自学的天堂/" itemprop="url" rel="index">
-                    <span itemprop="name">自学的天堂</span>
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
                   </a>
                 </span>
 
@@ -404,69 +404,10 @@
       
 
       
-        <h1 id="进入C"><a href="#进入C" class="headerlink" title="进入C++"></a>进入C++</h1><h2 id="C-程序预览"><a href="#C-程序预览" class="headerlink" title="C++程序预览"></a>C++程序预览</h2><p>下面是C++程序的HelloWord(程序员们都懂得)<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//经典示例：HelloWord</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello Word!"</span>;</div><div class="line">    <span class="built_in">cin</span>.get();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>简单说一下整体结构：</p>
-<ul>
-<li>注释，由前缀//标识</li>
-<li>预处理器编译指令#include</li>
-<li>函数头:int main()</li>
-<li>编译指令using namespace</li>
-<li>函数体，用‘{’和‘}’括起</li>
-<li>使用C++的out工具显示消息的语句</li>
-<li>结束main()函数的return语句</li>
-</ul>
-<p>废话就不多说了，只提一点，第六行也就是 <strong>cin.get()</strong> (后面会详解)，改句是为了让程序运行到该位置处于挂起状态，等到用户按下任意键结束程序。通常，main()被启动代码调用，而启动代码是由编译器添加到程序中的，是程序和操作系统(UNIX、Windows等)之间的桥梁。<br>在C语言中经典的函数头是长这样子的：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">main()  <span class="comment">//原始C风格</span></div></pre></td></tr></table></figure></p>
-<p>在C中，省略返回类型相当于说函数的返回类型为int,C++逐步淘汰了这种做法。还有下面的变体：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div></pre></td></tr></table></figure></p>
-<p>括号中的void关键字void明确指出函数不接受任何参数，注意：在C++中void和空着是等效的，在C中括号内空着表示对是否接受参数保持默认。应尽量使用C++标准格式。如果末尾没有返回语句，则默认以 <strong>return 0</strong> 结尾，该种处理方方式只适合main()函数。</p>
-<h2 id="头文件-包含文件"><a href="#头文件-包含文件" class="headerlink" title="头文件(包含文件)"></a>头文件(包含文件)</h2><p>C语言的传统是，头文件使用扩展名h，例如 <strong>math.h</strong> ，C++中这些老式的C的头文件保留了扩展名，即C++仍可以使用这种文件。而C++的头文件没有扩展名，有些C头文件被转换为C++头文件，这些文件被重新命名，具体做法是：去掉扩展名h，名称前边加上前缀c,表明来自C语言，例如 <strong>cmath</strong> 。对于纯粹的C++头文件来说，去掉扩展名不只是形式上的变化，没有h的头文件可以包含名称空间，用一个表格做总结：</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">头文件类型</th>
-<th style="text-align:center">约定</th>
-<th style="text-align:center">示例</th>
-<th style="text-align:center">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">C++旧式风格</td>
-<td style="text-align:center">以.h结尾</td>
-<td style="text-align:center">iostream.h</td>
-<td style="text-align:center">C++可以使用</td>
-</tr>
-<tr>
-<td style="text-align:center">C旧式风格</td>
-<td style="text-align:center">以.h结尾</td>
-<td style="text-align:center">math.h</td>
-<td style="text-align:center">C、C++可以使用</td>
-</tr>
-<tr>
-<td style="text-align:center">C++新式风格</td>
-<td style="text-align:center">没有扩展名</td>
-<td style="text-align:center">iostream</td>
-<td style="text-align:center">C++可以使用，使用namespace std</td>
-</tr>
-<tr>
-<td style="text-align:center">转换后的C</td>
-<td style="text-align:center">加上前缀c，没有扩展名</td>
-<td style="text-align:center">cmath</td>
-<td style="text-align:center">C++程序可以使用，可以使用不是C的特性，如namespace std</td>
-</tr>
-</tbody>
-</table>
-<h2 id="cout-amp-amp-cin"><a href="#cout-amp-amp-cin" class="headerlink" title="cout &amp;&amp; cin"></a>cout &amp;&amp; cin</h2><p>来看一下很很很简单的代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="string">"HelloWord!"</span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="number">25</span>;</div><div class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> a;</div><div class="line"><span class="built_in">cin</span> &gt;&gt; a;</div></pre></td></tr></table></figure></p>
-<p>cout是一个预定于的对象，&lt;&lt;指出了信息的流动路径，即把这个字符串或者整数发送给cout,cout很智能，知道如何显示字符串、数字和单个字符。cout的智能行为源自于C++的面向对象特性，C++插入运算符（&lt;&lt;）会根据其后的数据类型相应的调整其行为，这是一个运算符重载的例子(后面再说吧)。endl是一个特殊的C++符号，表示重起一行，在输出流中插入endl将导致屏幕光标移到下一行的开头，endl位于std名称空间中，这类字符称为控制字符。还有一种换行的方法使使用C语言的符号’\n’。</p>
-<blockquote>
-<p><em>endl可以确保程序继续运行前刷新输出，而‘\n’不能提供这样的保证，因为实际上‘\n’是一种被称为“转义序列”的按键组合。</em><br>题外话：你能实现一个算法，输入整数类型，输出对应的字符串吗？</p>
-</blockquote>
-<p>对于cin，上述语句中信息从cin流向变量a，iostream文件将cin定义为一个表示这种流的对象。输出时，&lt;&lt;运算符将字符串插入到输出流中，输入时，&gt;&gt;运算符从输入流中抽取字符。</p>
-<h2 id="类与函数"><a href="#类与函数" class="headerlink" title="类与函数"></a>类与函数</h2><p>不多讲，C++提供了两种发送消息的方式：</p>
-<ul>
-<li>使用类方法。(本质就是函数调用)</li>
-<li>重新定义运算符。(cin和cout采用的就是这种方式)</li>
-</ul>
-<p>C++中函数不能嵌套，使用时需要先声明。</p>
+        <h1 id="树的前序非递归遍历"><a href="#树的前序非递归遍历" class="headerlink" title="树的前序非递归遍历"></a>树的前序非递归遍历</h1><p>树的结构<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Node &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> val;</div><div class="line">    Node *left, *right;</div><div class="line">    Node(<span class="keyword">int</span> val) &#123;</div><div class="line">        <span class="keyword">this</span>-&gt;val = val;</div><div class="line">        <span class="keyword">this</span>-&gt;left = <span class="keyword">this</span>-&gt;right = <span class="literal">NULL</span>;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>前序非递归遍历：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">preTree</span><span class="params">(Node *root)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="built_in">stack</span>&lt;Node *&gt; myStack;</div><div class="line">	myStack.push(root);</div><div class="line">	<span class="keyword">while</span> (!myStack.empty())</div><div class="line">	&#123;</div><div class="line">		Node *p = myStack.top(); stk.pop();</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</div><div class="line">		<span class="keyword">if</span> (p-&gt;right) stk.push(p-&gt;right);</div><div class="line">		<span class="keyword">if</span> (p-&gt;left) stk.push(p-&gt;left);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>中序非递归<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">midTree</span><span class="params">(Node *root)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">stack</span>&lt;Node *&gt; myStack;</div><div class="line">    Node *p = root;</div><div class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> || !myStack.empty())</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span> (p != <span class="literal">NULL</span>)</div><div class="line">            myStack.push(p), p = p-&gt;left;</div><div class="line">        <span class="keyword">else</span></div><div class="line">        &#123;</div><div class="line">            p = myStack.top(); myStack.pop();</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; p-&gt;val;</div><div class="line">            p = p-&gt;right;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>后序非递归<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">backTree</span><span class="params">(Node *root)</span><span class="comment">//非递归后序遍历</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (root == <span class="literal">NULL</span>) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="built_in">stack</span>&lt;Node *&gt; myStack1, myStack2;</div><div class="line">    myStack1.push(root);</div><div class="line">    <span class="keyword">while</span> (!myStack1.empty())</div><div class="line">    &#123;</div><div class="line">        Node *p = myStack1.top(); myStack1.pop();</div><div class="line">        myStack2.push(p);</div><div class="line">        <span class="keyword">if</span> (p-&gt;left) myStack1.push(p-&gt;left);</div><div class="line">        <span class="keyword">if</span> (p-&gt;right) myStack1.push(p-&gt;right);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span>(!myStack2.empty())</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, stk2.top()-&gt;val);</div><div class="line">        myStack2.pop();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -517,7 +458,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/树/" rel="tag"># 树</a>
           
         </div>
       
@@ -530,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/31/literature-1/" rel="next" title="夜空下的遥想">
-                <i class="fa fa-chevron-left"></i> 夜空下的遥想
+              <a href="/2017/04/12/library-c/" rel="next" title="C++常见函数封装">
+                <i class="fa fa-chevron-left"></i> C++常见函数封装
               </a>
             
           </div>
@@ -539,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/31/algorithm-1/" rel="prev" title="动态规划">
-                动态规划 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -738,7 +675,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#进入C"><span class="nav-number">1.</span> <span class="nav-text">进入C++</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C-程序预览"><span class="nav-number">1.1.</span> <span class="nav-text">C++程序预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#头文件-包含文件"><span class="nav-number">1.2.</span> <span class="nav-text">头文件(包含文件)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cout-amp-amp-cin"><span class="nav-number">1.3.</span> <span class="nav-text">cout && cin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类与函数"><span class="nav-number">1.4.</span> <span class="nav-text">类与函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#树的前序非递归遍历"><span class="nav-number">1.</span> <span class="nav-text">树的前序非递归遍历</span></a></li></ol></div>
             
 
           </div>
